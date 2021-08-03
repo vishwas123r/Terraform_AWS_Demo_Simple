@@ -23,7 +23,7 @@ now that you have applied all the code and you want to get to know how the state
 =terraform state show=
 
 
-then if you feel like you need to know some more insights about the state of even a part of the infrastrue you can go and use the command => =terraform state show <Infrastructure_that_you_want_to_see_the_state>=
+then if you feel like you need to know some more insights about the state of even a part of the infrastrue you can go and use the command =terraform state show <Infrastructure_that_you_want_to_see_the_state>=
 
 
 in the code that you write you can use the =output= command in the program and get the output
@@ -77,7 +77,7 @@ variable_name = variable_value["i[0]","i[1]"]
 then in the program you can write it as =var.variable_name[<index>]=
 
 
-and now in the command prompt you can go and write the command after writing the above code is by the command =terraform apply -var "<name_for_the_variable> <value_for_name_for_the_variable>"=
+and now in the command prompt you can go and write the command after writing the above code is by the command = terraform apply -var "<name_for_the_variable> <value_for_name_for_the_variable>" =
 
 
 **remember this value and name_for_the_variable has to be written in double quotes**
