@@ -1,0 +1,92 @@
+The command that helps you get to know that you have installed the terrafrom correctly is 
+
+
+=terraform -v= and =terraform=
+
+
+The Command which is used in initiliazing the state files and the varaibles is 
+
+
+=terraform init=
+
+and to run and apply the infrastructure that you have coded you can use the command
+
+
+=terraform apply=
+
+
+now that you have applied all the code and you want to get to know how the state of the infrasture then you can use the command
+
+=terraform state list=
+
+
+=terraform state show=
+
+
+then if you feel like you need to know some more insights about the state of even a part of the infrastrue you can go and use the command => =terraform state show <Infrastructure_that_you_want_to_see_the_state>=
+
+
+in the code that you write you can use the =output= command in the program and get the output
+
+
+#+BEGIN_EXAMPLE
+output "server_<property>" {
+    value = <provider>_<service>.<name_in_program>.<property>
+}
+#+END_EXAMPLE
+
+
+and then you can go and run this command and get the autput
+
+
+=terraform apply --auto-approve= - the output that we desired is on command prompt with the `green text`
+
+
+if you want to destoty a infrasture you can use the command =terraform destroy= but when you want to destroy and instance you can use the command =terraform destroy -target <instance_name_in_program{no id added here}>=
+
+
+and similarly if we want to apply a part of the infrastructure we can do it using the command =terraform apply -target <instance_name_in_program{no id added here}>= 
+
+
+Alright now that we have hardcoded a lot of the instances we should have to go and get the understanding of the variable.
+
+
+#+BEGIN_EXAMPLE
+variable "name_for_the_variable" {
+    description = "Some text to show up"
+    default = <a Value> #you can try writing some value for the varaible where the user need not have to explicitly program it in the later part
+    type = "<varialbe_type>" #you can specify which is the type of varailbe that you want the user to pass as a parameter
+}
+#+END_EXAMPLE
+
+
+and to reference the variable you can use the syntax
+
+
+=var.<name_for_the_variable>=
+
+
+and if you list the varaibles then you can go and write the code in the =terraform.tfvars= as a list 
+
+
+#+BEGIN_EXAMPLE
+variable_name = variable_value["i[0]","i[1]"]
+#+END_EXAMPLE
+
+
+then in the program you can write it as =var.variable_name[<index>]=
+
+
+and now in the command prompt you can go and write the command after writing the above code is by the command =terraform apply -var "<name_for_the_variable> <value_for_name_for_the_variable>"=
+
+
+**remember this value and name_for_the_variable has to be written in double quotes**
+
+
+Also the other method is by writing it on *terraform.tfvars* file.
+
+inside the *terraform.tfvars* file go and write the 
+=<name_for_the_variable> = "value of th name_for_the_variable"=
+
+
+Then if you do =terraform apply= then you need not have to apply it once again you can get you infrastructure ready.
